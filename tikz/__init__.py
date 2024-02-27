@@ -1080,8 +1080,8 @@ class Picture(Scope):
             code += '[' + options + ']'
         code += '{' + name + '}'
         self.add_preamble(code)
-        if name == 'circultikz':
-            self.usetikzlibrary = True
+        if name == 'circuitikz':
+            self.usecircuitikz = True
 
     def fira(self):
         """
