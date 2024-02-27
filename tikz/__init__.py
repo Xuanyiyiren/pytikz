@@ -1079,6 +1079,9 @@ class Picture(Scope):
             code += '[' + options + ']'
         code += '{' + name + '}'
         self.add_preamble(code)
+        self.usecircuitikz = False
+        if name == 'circultikz':
+            self.usetikzlibrary = True
 
     def fira(self):
         """
@@ -1100,9 +1103,14 @@ class Picture(Scope):
         sep = os.path.sep
 
         # create tikzpicture code
-        code = (r'\begin{tikzpicture}' + self.opt + '\n'
-                + '\n'.join(el._code() for el in self.elements) + '\n'
-                + r'\end{tikzpicture}')
+        if self.usecircuitikz:
+            code = (r'\begin{circuitikz}' + self.opt + '\n'
+                    + '\n'.join(el._code() for el in self.elements) + '\n'
+                    + r'\end{circuitikz}')
+        else:
+            code = (r'\begin{tikzpicture}' + self.opt + '\n'
+                    + '\n'.join(el._code() for el in self.elements) + '\n'
+                    + r'\end{tikzpicture}')
         self._code = code
 
         # create document code
