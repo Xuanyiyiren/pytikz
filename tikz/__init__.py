@@ -1075,13 +1075,17 @@ class Picture(Scope):
         document. If the method is called multiple times with the same
         arguments, only one such command is added.
         """
+        if name == 'circuitikz':
+            self.usecircuitikz = True
+            return 
+        # circuitikz package must be add before `\\usetikzlibrary{external}`
+        # Infact, circuitikz package have already use the tikz package.
         code = r'\usepackage'
         if options is not None:
             code += '[' + options + ']'
         code += '{' + name + '}'
         self.add_preamble(code)
-        if name == 'circuitikz':
-            self.usecircuitikz = True
+        
 
     def fira(self):
         """
@@ -1115,11 +1119,18 @@ class Picture(Scope):
 
         # create document code
         # standard preamble
-        codelines = [
-            r'\documentclass{article}',
-            r'\usepackage{tikz}',
-            r'\usetikzlibrary{external}',
-            r'\tikzexternalize']
+        if self.usecircuitikz:
+            codelines = [
+                r'\documentclass{article}',
+                r'\usepackage{circuitikz}',
+                r'\usetikzlibrary{external}',
+                r'\tikzexternalize']
+        else:
+            codelines = [
+                r'\documentclass{article}',
+                r'\usepackage{tikz}',
+                r'\usetikzlibrary{external}',
+                r'\tikzexternalize']
         # user-added preamble
         codelines += self.preamble
         # document body
