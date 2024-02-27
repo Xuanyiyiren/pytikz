@@ -5,7 +5,7 @@ name = 'pytikz'
 author = 'Carsten Allefeld'
 version = '0.1.0'
 description = 'A Python interface to TikZ'
-url = 'https://github.com/xuanyiyiren/pytikz'
+url = 'https://github.com/Xuanyiyiren/pytikz'
 classifiers = [
     'Programming Language :: Python :: 3',
     'License :: OSI Approved :: '
