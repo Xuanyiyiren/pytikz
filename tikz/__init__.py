@@ -1033,6 +1033,7 @@ class Picture(Scope):
             atexit.register(shutil.rmtree, self.tempdir, ignore_errors=True)
         else:
             self.tempdir = tempdir
+        self.usecircuitikz = False
 
     def add_preamble(self, code):
         """
@@ -1079,7 +1080,6 @@ class Picture(Scope):
             code += '[' + options + ']'
         code += '{' + name + '}'
         self.add_preamble(code)
-        self.usecircuitikz = False
         if name == 'circultikz':
             self.usetikzlibrary = True
 
