@@ -22,7 +22,7 @@ pic.write_image('nikolaus.pdf')
 The distribution package is called `pytikz` and can be installed from this repository:
 
 ```
-pip install git+https://github.com/allefeld/pytikz.git
+pip install git+https://github.com/Xuanyiyiren/pytikz.git
 ```
 
 Note that the import package is called `tikz`.
