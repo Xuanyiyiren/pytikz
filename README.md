@@ -30,7 +30,7 @@ Note that the import package is called `tikz`.
 
 ## Getting started
 
-A tutorial illustrating the use of pytikz is provided in the form of a Jupyter notebook [`pytikz.ipynb`](pytikz.ipynb). It is best viewed through [nbviewer](https://nbviewer.jupyter.org/github/allefeld/pytikz/blob/master/pytikz.ipynb).
+A tutorial illustrating the use of pytikz is provided in the form of a Jupyter notebook [`pytikz.ipynb`](pytikz.ipynb). It is best viewed through [nbviewer](https://nbviewer.jupyter.org/github/Xuanyiyiren/pytikz/blob/master/pytikz.ipynb).
 
 
 ## Documentation
